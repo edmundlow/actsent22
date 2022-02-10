@@ -31,8 +31,8 @@ function App()  {
   }
   return (
     <div>
-    <RequestButton onClick={onClick} message={message}> </RequestButton>
-    
+    <RequestButton onClick={onClick}>  </RequestButton>
+    <p>{message}</p>
     </div>)
   
 }
