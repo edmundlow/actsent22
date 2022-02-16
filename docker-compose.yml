@@ -1,0 +1,21 @@
+version: "3" 
+services:
+  client:
+    build: ./front-end
+    container_name: "front-end"
+    depends_on:
+      - server
+    ports:
+      - 3001:3001
+  server:
+    build: ./back-end
+    container_name: "back-end"
+    ports:
+      - 3000:3000
+  # database:
+  #   image: postgres:latest
+  #   container_name: my-postgres
+  #   environment:
+  #     - POSTGRES_PASSWORD=mysecretpassword
+  #   ports:
+  #     - 5432:5432

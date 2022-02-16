@@ -1,9 +1,9 @@
 FROM node:latest
 
-COPY ./build package.json package-lock.json /app/
+RUN npm install -g serve
 
-RUN cd /app && npm install && npm install -g serve
+COPY ./build /app/
 
 EXPOSE 3001
 
-CMD cd /app && serve -s build -l 3001
+CMD serve -s app -l 3001

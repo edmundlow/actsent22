@@ -1,9 +1,11 @@
 FROM node:latest
 
-COPY package.json package-lock.json server.js /app/
+COPY package.json package-lock.json /app/
 
 RUN cd /app && npm install
 
-EXPOSE 3001
+COPY server.js /app/
+
+EXPOSE 3000
 
 CMD cd /app && node server.js
