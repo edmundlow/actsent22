@@ -1,14 +1,14 @@
 FROM node:latest
 
-COPY ./src/  /app/src/
-
-COPY ./public/ /app/public/
+RUN npm install -g serve
 
 COPY package.json package-lock.json /app/
 
 RUN cd /app/ && npm install 
 
-RUN npm install -g serve
+COPY ./src/  /app/src/
+
+COPY ./public/ /app/public/
 
 RUN cd /app/ && npm run build
 
