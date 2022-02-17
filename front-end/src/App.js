@@ -63,7 +63,7 @@ function App()  {
   async function onClick(){
     console.log("the button has been clicked woooo!")
     // const res = await fetch('https://kdm665d8y1.execute-api.eu-west-2.amazonaws.com/production/')
-    const res = await fetch('http://localhost:3000')
+    const res = await fetch('http://localhost:3000/venue')
     const data = await res.text()
     console.log(data)
     setMessage(data);
