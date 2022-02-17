@@ -18,7 +18,7 @@ const app = express()
 
 app.use(cors())
 app.get('/venue', (req, res) => {
-  res.send([
+  res.json([
     {
       venue_name: 'Arena 1',
       location: 'London',

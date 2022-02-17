@@ -4,10 +4,11 @@ const request = require('supertest');
 
 
 describe('GET /venue', function() {
-  it('responds with json', async function() {
+  it('responds with list of venues', async function() {
     const response = await request(app)
       .get('/venue')
-    //expect(response.headers["Content-Type"]).toMatch(/json/)
+    console.log(response.headers)
+    expect(response.headers["content-type"]).toMatch(/json/)
     expect(response.body).toEqual([
       {
         venue_name: 'Arena 1',
