@@ -25,12 +25,12 @@ $ cd ..
 
 ```
 ### Allow access on your computer and Deploy
-
-In the infrastructure file, go to line 28 and change the IP address to your public IP address for your computer. Save this file and continue running the following commands in the terminal.
+Go to line 28 in infrastructure/lib/infrastructure-stack.js and change the IP address to your public IP address for your computer. Save this file and continue running the following commands in the terminal.
 
 ```
 
 $ cd infrastructure
+$ npm install
 $ aws-azure-login --profile <profile-type> --mode=gui
 
 ```
