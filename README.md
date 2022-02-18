@@ -6,7 +6,7 @@ Booking system for artists to book events
 
 ### Cloning the respository
 
-`$ git clone https://github.com/School-Of-Tech-Futures-UK/lucy-mullins.git`
+`https://github.com/School-Of-Tech-Futures-UK/actsent22.git`
 
 ### Setup front and back end
 
@@ -41,6 +41,8 @@ $ cdk --profile <profile-type> deploy
 ```
 
 Click the link below (or available in the terminal) to launch Actsent.
+
+http://actsent-website.s3-website.eu-west-2.amazonaws.com
 
 
 
