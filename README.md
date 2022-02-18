@@ -8,7 +8,7 @@ Booking system for artists to book events
 
 `https://github.com/School-Of-Tech-Futures-UK/actsent22.git`
 
-### Setup front and back end
+### Setup and start the server
 
 Run the following commands in the terminal 
 
@@ -16,6 +16,7 @@ Run the following commands in the terminal
 
 $ cd back-end
 $ npm install
+$ node local.js
 $ cd ..
 
 $ cd front-end
