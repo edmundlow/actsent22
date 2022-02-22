@@ -25,7 +25,7 @@ class InfrastructureStack extends Stack {
         ],
         conditions: {
           "IpAddress": {
-            "aws:SourceIp": "217.155.101.226"
+            "aws:SourceIp": "92.40.172.141"
           }
         }
       }),

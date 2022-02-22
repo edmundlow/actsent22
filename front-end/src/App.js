@@ -1,6 +1,7 @@
 import * as React from 'react'
-import logo from './logo.svg';
 import './App.css';
+import ListOfVenues from'./components/listofvenues/ListOfVenues'
+
 import { useEffect, useState} from 'react'
 import {
   BrowserRouter ,
@@ -71,14 +72,19 @@ function App()  {
    // return data
    
   }
+
   return (
-    <><BrowserRouter>
+    <>
+    <BrowserRouter>
       <NavBar />
       <Routes />
     </BrowserRouter><div>
         <RequestButton onClick={onClick}>  </RequestButton>
         <p>{message}</p>
-      </div></>)
+        <ListOfVenues />
+      </div>
+      </>
+      )
   
 }
 
