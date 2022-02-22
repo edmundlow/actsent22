@@ -106,7 +106,7 @@ jobs:
 
       - name: npm publish
         working-directory: ./back-end
-        run: npm publish --access public
+        run: npm publish --access public --registry=https://npm.pkg.github.com/
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
