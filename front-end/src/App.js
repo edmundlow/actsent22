@@ -1,5 +1,7 @@
 import * as React from 'react'
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import ListOfVenues from'./components/listofvenues/ListOfVenues'
 
 import { useEffect, useState} from 'react'

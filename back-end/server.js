@@ -20,18 +20,36 @@ app.use(cors())
 app.get('/venue', (req, res) => {
   res.json([
     {
-      venue_name: 'Arena 1',
+      name: 'Arena 1',
       location: 'London',
       image: 'https://picsum.photos/id/101/200/200',
       description: 'The first arena'
     },
 
     {
-      venue_name: 'Bills Bar',
+      name: 'Bills Bar',
       location: 'Manchester',
       image: 'https://picsum.photos/id/1047/200/200',
-      description: 'A bar belonging to Bill'
-    }
+      description : "A bar belonging to bill"
+    },
+
+    {
+      name: 'Mariola\'s Palace Bar',
+      location: 'Madrid',
+      image: 'https://picsum.photos/id/1047/200/200',
+      description : "Luxurious as its owner"
+    },
+
+    {
+      name: 'Lucy\'s Lounge',
+      location: 'Luxembourg',
+      image: 'https://picsum.photos/id/1047/200/200',
+      description : "Legends only"
+    },
+
+
+
+
   ])
 })
 
