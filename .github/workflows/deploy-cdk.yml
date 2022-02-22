@@ -27,26 +27,26 @@ jobs:
 
     - name: Install npm Front End
       run: 'npm install'
-      working-directory: /front-end
+      working-directory: front-end
 
     - name: npm install worked
       run: ls 
-      working-directory: /front-end
+      working-directory: front-end
 
     - name: Run npm Build
       run: 'npm run build'
-      working-directory: /front-end
+      working-directory: front-end
 
     - name: Install npm Infrastructure
       run: 'npm install'
-      working-directory: /infrastructure
+      working-directory: infrastructure
 
     - name: AWS Login
       run: 'awz-azure-login --profile aal-profile --mode=gui'
-      working-directory: /infrastructure
+      working-directory: infrastructure
 
     - name: CDK Deploy
       run: 'cdk --profile aal-profile deploy'
-      working-directory: /infrastructure
+      working-directory: infrastructure
 
         
