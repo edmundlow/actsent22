@@ -1,6 +1,4 @@
 name: Main Branch Release And Package
-# Thanks to our very own Chris Scott-Thomas for https://github.com/dwp/jmx-exporter/blob/master/.github/workflows/main.yml
-# See https://api.github.com/orgs/infinityworks/repos
 
 on:
   push:
