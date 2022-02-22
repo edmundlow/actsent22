@@ -1,5 +1,6 @@
-import Venue from '../venue/Venue'
+import VenueListItem from '../venuelistitem/VenueListItem'
 import { useEffect, useState} from 'react'
+
 
 async function fetchVenues(){
     console.log("the button has been clicked woooo!")
@@ -9,17 +10,21 @@ async function fetchVenues(){
     return data
   }
 
-const  ListOfVenues = async (props) =>{
+const  ListOfVenues = (props) =>{
 
-    const [listState, setListState] = useState()
-
-    props.venues = await fetchVenues()
-
+    const [listState, setListState] = useState([])
+    useEffect(() => {
+        fetchVenues().then(setListState)
+    }, []
+    
+    )
+    
+    // when database made = add key={venueID} to line 26
     return (
         <>
         {
-            props.venues.map(venue => {
-                return <Venue name={venue.venue_name}/>
+            listState.map(venue => {
+                return <VenueListItem name={venue.venue_name}/>
             })
         }
         </>

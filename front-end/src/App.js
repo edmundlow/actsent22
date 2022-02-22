@@ -67,7 +67,7 @@ function App()  {
     const res = await fetch('http://localhost:3000/venue')
     const data = await res.text()
     console.log(data)
-    setMessage(data);
+    //setMessage(data);
     //(data);
    // return data
    
