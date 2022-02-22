@@ -1,7 +1,7 @@
 name: Deploy AWS CDK
 
 on:
-  push:
+  working-directory:
   
 jobs:
   aws_cdk:
@@ -48,5 +48,3 @@ jobs:
     - name: CDK Deploy
       run: 'cdk --profile aal-profile deploy'
       working-directory: infrastructure
-
-        
