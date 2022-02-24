@@ -46,5 +46,7 @@ Click the link below (or available in the terminal) to launch Actsent.
 http://actsent-website.s3-website.eu-west-2.amazonaws.com
 
 
+When testing use npm test not npx jest 
+
 
 
