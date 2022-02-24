@@ -3,6 +3,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import ListOfVenues from'./components/listofvenues/ListOfVenues'
+import SingleVenuePage from './pages/SingleVenuePage';
 
 import { useEffect, useState} from 'react'
 import {
@@ -17,17 +18,23 @@ import {
 } from "react-router-dom";
 
 const Routes = () => (
+
   <Switch>
     <Route path="/mybooking">
       <h1>Booking</h1>
     </Route>
-    <Route path="/venues">
+    <Route path= '/venues'>
+    <ListOfVenues />
+    </Route>
+    <Route path='/SingleVenuePage'>
+      <SingleVenuePage/>
       <h1>View Venue</h1>
     </Route>
     <Route path="/">
       <h1>Home</h1>
     </Route>
   </Switch>
+
 );
 
 const NavBar = () => {
@@ -83,7 +90,6 @@ function App()  {
     </BrowserRouter><div>
         <RequestButton onClick={onClick}>  </RequestButton>
         <p>{message}</p>
-        <ListOfVenues />
       </div>
       </>
       )

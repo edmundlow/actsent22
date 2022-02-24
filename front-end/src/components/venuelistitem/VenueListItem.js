@@ -1,4 +1,4 @@
-
+import ViewVenuePage from '../ViewVenuePage/ViewVenuePage'
 
 const VenueListItem = (props) =>{
     return (
@@ -14,6 +14,7 @@ const VenueListItem = (props) =>{
                     <h5 class="card-title">{props.name}</h5>
                     <p class="card-text">{props.location} <br/>
                         {props.description}</p>
+                        <ViewVenuePage />
                 </div>
                 </div>
             </div>
