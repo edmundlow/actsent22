@@ -24,7 +24,7 @@ const  ListOfVenues = (props) =>{
         <>
         {
             listState.map(venue => {
-                return <VenueListItem name={venue.name} location={venue.location} description={venue.description} image={venue.image}/>
+                return <VenueListItem id = {venue.id} name={venue.name} location={venue.location} description={venue.description} image={venue.image}/>
             })
         }
         </>
