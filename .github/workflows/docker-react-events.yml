@@ -1,0 +1,26 @@
+name: Docker React CI Front End
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Login to DockerHub
+      run: echo ${{ secrets.DOCKER_PASS }} | docker login -u ${{ secrets.DOCKER_USER }} --password-stdin
+      working-directory: front-end
+
+    - name: Build the Docker image
+      run: docker build -t khaashifriaz/react2:v1 .
+      working-directory: front-end
+
+    - name: Push the docker image
+      run: docker push khaashifriaz/react2:v1
+      working-directory: front-end

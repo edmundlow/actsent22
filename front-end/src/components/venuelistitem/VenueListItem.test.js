@@ -8,7 +8,7 @@ import '@testing-library/jest-dom';
 
 it("Should render a venue's information - Lucy's Lounge", () => {
     render(<VenueListItem name={"Lucy's Lounge"} location={"London"} description={"My description"} image={"https://picsum.photos/id/1047/200/200"}/>);
-    console.log(screen.getByText(/Lucy's Lounge/));
+    //console.log(screen.getByText(/Lucy's Lounge/));
     
     // Check all required info elements are displayed
     screen.getByText(/Lucy's Lounge/);
@@ -18,10 +18,4 @@ it("Should render a venue's information - Lucy's Lounge", () => {
     const button = screen.getByRole("button")
     expect(button).toHaveTextContent("Click me")
 })
-
-
-
-
-
-
 
