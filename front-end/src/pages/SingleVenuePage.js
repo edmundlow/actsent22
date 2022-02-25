@@ -10,7 +10,7 @@ import { useParams, withRouter} from "react-router-dom";
 
 async function fetchVenue(){
     console.log("wellcome to venue")
-    const res = await fetch('http://localhost:3000/venue')
+    const res = await fetch('http://localhost:3002/venue')
     const data = await res.json()
     console.log(data)
     return data
