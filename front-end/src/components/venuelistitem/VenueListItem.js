@@ -18,8 +18,7 @@ const VenueListItem = (props) =>{
                 <div className="col-md-8">
                 <div className="card-body">
                     <h5 className="card-title">{props.name}</h5>
-                    <p className="card-text">{props.location} 
-                    <br/>
+                    <p className="card-text">{props.location} <br/>
                         {props.description}</p>
                         <button className='venuebutton' onClick ={singlevenue}>
                             View Venue
