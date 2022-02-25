@@ -1,11 +1,10 @@
 import React from 'react';
 
-import { useHistory , useParams} from "react-router-dom";
+import { useHistory} from "react-router-dom";
 
 
 
 const ViewVenuePage = (props) =>{
-        //const id=1
         const history = useHistory();
         return (
 

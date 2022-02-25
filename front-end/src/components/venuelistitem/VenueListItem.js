@@ -1,5 +1,5 @@
-import ViewVenuePage from '../ViewVenuePage/ViewVenuePage'
-import { useHistory , useParams, withRouter} from "react-router-dom";
+
+import { useHistory} from "react-router-dom";
 
 
 const VenueListItem = (props) =>{
@@ -8,7 +8,7 @@ const VenueListItem = (props) =>{
         history.push(`/venues/${props.id}`)
     }
     return (
-        <div key={props.key} >
+        <div key={props.id} >
 
             <div className="card mb-3" >
             <div className="row no-gutters">
