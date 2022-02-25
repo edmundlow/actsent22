@@ -23,12 +23,11 @@ const Routes = () => (
     <Route path="/mybooking">
       <h1>Booking</h1>
     </Route>
-    <Route path= '/venues'>
+    <Route exact path= '/venues'>
     <ListOfVenues />
     </Route>
-    <Route path='/SingleVenuePage'>
-      <SingleVenuePage/>
-      <h1>View Venue</h1>
+    <Route exact path={`/venues/:id`}>
+    <SingleVenuePage />
     </Route>
     <Route path="/">
       <h1>Home</h1>
@@ -89,7 +88,7 @@ function App()  {
       <Routes />
     </BrowserRouter><div>
         <RequestButton onClick={onClick}>  </RequestButton>
-        <p>{message}</p>
+        <p>{message} </p>
       </div>
       </>
       )
