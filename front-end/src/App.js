@@ -23,12 +23,11 @@ const Routes = () => (
     <Route path="/mybooking">
       <h1>Booking</h1>
     </Route>
-    <Route path= '/venues'>
+    <Route exact path= '/venues'>
     <ListOfVenues />
     </Route>
-    <Route path='/SingleVenuePage'>
-      <SingleVenuePage/>
-      <h1>View Venue</h1>
+    <Route exact path={`/venues/:id`}>
+    <SingleVenuePage />
     </Route>
     <Route path="/">
       <h1>Home</h1>
@@ -73,7 +72,7 @@ function App()  {
   async function onClick(){
     console.log("the button has been clicked woooo!")
     // const res = await fetch('https://kdm665d8y1.execute-api.eu-west-2.amazonaws.com/production/')
-    const res = await fetch('http://localhost:3000/venue')
+    const res = await fetch('http://localhost:3002/venue')
     const data = await res.text()
     console.log(data)
     //setMessage(data);
@@ -89,7 +88,7 @@ function App()  {
       <Routes />
     </BrowserRouter><div>
         <RequestButton onClick={onClick}>  </RequestButton>
-        <p>{message}</p>
+        <p>{message} </p>
       </div>
       </>
       )

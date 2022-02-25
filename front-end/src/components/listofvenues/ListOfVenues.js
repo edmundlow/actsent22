@@ -3,8 +3,9 @@ import { useEffect, useState} from 'react'
 
 
 async function fetchVenues(){
-    console.log("the button has been clicked woooo!")
-    const res = await fetch('http://localhost:3000/venue')
+   
+    const res = await fetch('http://localhost:3002/venue')
+    //const res = await fetch(process.env.ACTCITING-REACT-URI + '/')
     const data = await res.json()
     console.log(data)
     return data
@@ -24,7 +25,7 @@ const  ListOfVenues = (props) =>{
         <>
         {
             listState.map(venue => {
-                return <VenueListItem name={venue.name} location={venue.location} description={venue.description} image={venue.image}/>
+                return <VenueListItem id = {venue.id} name={venue.name} location={venue.location} description={venue.description} image={venue.image}/>
             })
         }
         </>

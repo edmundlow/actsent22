@@ -12,6 +12,6 @@ COPY ./public/ /app/public/
 
 RUN cd /app/ && npm run build
 
-EXPOSE 3001
+EXPOSE 3000
 
-CMD serve -s /app/build/ -l 3001
+CMD serve -s /app/build/ -l 3000
