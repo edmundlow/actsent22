@@ -19,12 +19,12 @@ const  ListOfVenues = (props) =>{
     
     )
     // hello 
-    // when database made = add key={venueID} to line 26
+    // when database made => change key={venueID} in line 27
     return (
         <>
         {
             listState.map(venue => {
-                return <VenueListItem id = {venue.id} name={venue.name} location={venue.location} description={venue.description} image={venue.image}/>
+                return <VenueListItem key={venue.id} id = {venue.id} name={venue.name} location={venue.location} description={venue.description} image={venue.image}/>
             })
         }
         </>
