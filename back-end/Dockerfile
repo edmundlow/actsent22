@@ -4,7 +4,7 @@ COPY package.json package-lock.json /app/
 
 RUN cd /app && npm install
 
-COPY local.js /app/
+COPY server.js lambda.js local.js /app/
 
 EXPOSE 3000
 
