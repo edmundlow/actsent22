@@ -4,8 +4,8 @@ COPY package.json package-lock.json /app/
 
 RUN cd /app && npm install
 
-COPY server.js /app/
+COPY local.js /app/
 
 EXPOSE 3000
 
-CMD cd /app && node server.js
+CMD cd /app && node local.js
