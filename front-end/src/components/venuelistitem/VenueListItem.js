@@ -1,8 +1,14 @@
 import ViewVenuePage from '../ViewVenuePage/ViewVenuePage'
+import { useHistory , useParams, withRouter} from "react-router-dom";
+
 
 const VenueListItem = (props) =>{
+    const history = useHistory()
+    const singlevenue = () => {
+        history.push(`/venues/${props.id}`)
+    }
     return (
-        <div key={props.key}>
+        <div key={props.key} >
 
             <div className="card mb-3" >
             <div className="row no-gutters">
@@ -14,7 +20,10 @@ const VenueListItem = (props) =>{
                     <h5 className="card-title">{props.name}</h5>
                     <p className="card-text">{props.location} <br/>
                         {props.description}</p>
-                        <ViewVenuePage />
+                        <button className='venuebutton' onClick ={singlevenue}>
+                            View Venue
+                        </button>
+                        
                 </div>
                 </div>
             </div>
@@ -24,3 +33,7 @@ const VenueListItem = (props) =>{
 }
 
 export default VenueListItem
+
+
+
+

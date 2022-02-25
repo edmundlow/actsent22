@@ -1,44 +1,15 @@
 import React from 'react';
 
-import { useHistory } from "react-router-dom";
+import { useHistory , useParams} from "react-router-dom";
 
 
 
-/*
-
-import React from 'react';
-
-import { useHistory } from 'react-router-dom';
-
-
-
-export default () => {
-
-  const history = useHistory();
-
-   
-
-  return (
-
-    <button onClick={() => history.push('/your/path')}>
-
-      Click me
-
-    </button>
-
-  );
-
-};*/
-
-
-
-const ViewVenuePage = () =>{
-
-
+const ViewVenuePage = (props) =>{
+        //const id=1
         const history = useHistory();
         return (
 
-          <button onClick={() => history.push('/SingleVenuePage')}>
+          <button onClick={() => history.push(`/SingleVenuePage/${props.id}`)}>
 
             Click me
 

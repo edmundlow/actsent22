@@ -20,6 +20,7 @@ app.use(cors())
 app.get('/venue', (req, res) => {
   res.json([
     {
+      id: 1,
       name: 'Arena 1',
       location: 'London',
       image: 'https://picsum.photos/id/101/200/200',
@@ -27,6 +28,7 @@ app.get('/venue', (req, res) => {
     },
 
     {
+      id: 2,
       name: 'Bills Bar',
       location: 'Manchester',
       image: 'https://picsum.photos/id/1047/200/200',
@@ -34,18 +36,20 @@ app.get('/venue', (req, res) => {
     },
 
     {
+      id: 3,
       name: 'Mariola\'s Palace Bar',
       location: 'Madrid',
       image: 'https://picsum.photos/id/1047/200/200',
       description : "Luxurious as its owner"
     },
 
-    // {
-    //   name: 'Lucy\'s Lounge',
-    //   location: 'Luxembourg',
-    //   image: 'https://picsum.photos/id/1047/200/200',
-    //   description : "Legends only"
-    // },
+    {
+      id: 4,
+      name: 'Lucy\'s Lounge',
+      location: 'Luxembourg',
+      image: 'https://picsum.photos/id/1047/200/200',
+      description : "Legends only"
+    },
 
 
 
