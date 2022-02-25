@@ -18,9 +18,9 @@ jobs:
       working-directory: front-end
 
     - name: Build the Docker image
-      run: docker build -t khaashifriaz/gigstr:react2 .
+      run: docker build -t khaashifriaz/react2:v1 .
       working-directory: front-end
 
     - name: Push the docker image
-      run: docker push khaashifriaz/gigstr:react2
+      run: docker push khaashifriaz/react2:v1
       working-directory: front-end
