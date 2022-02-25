@@ -40,12 +40,12 @@ app.get('/venue', (req, res) => {
       description : "Luxurious as its owner"
     },
 
-    {
-      name: 'Lucy\'s Lounge',
-      location: 'Luxembourg',
-      image: 'https://picsum.photos/id/1047/200/200',
-      description : "Legends only"
-    },
+    // {
+    //   name: 'Lucy\'s Lounge',
+    //   location: 'Luxembourg',
+    //   image: 'https://picsum.photos/id/1047/200/200',
+    //   description : "Legends only"
+    // },
 
 
 

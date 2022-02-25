@@ -1,21 +1,57 @@
 version: "3" 
 services:
-  client:
+  react2:
     build: ./front-end
-    container_name: "front-end"
+    container_name: front-end
     depends_on:
-      - server
+      - api2
     ports:
-      - 3001:3001
-  server:
+      - 5002:3000
+  
+
+  api2:
     build: ./back-end
     container_name: "back-end"
     ports:
-      - 3000:3000
-  # database:
-  #   image: postgres:latest
-  #   container_name: my-postgres
-  #   environment:
-  #     - POSTGRES_PASSWORD=mysecretpassword
-  #   ports:
-  #     - 5432:5432
+      - 3002:3000
+   
+
+  database:
+    image: khaashifriaz/gigstr:gigtag
+    container_name: gigstr-db-container
+    environment:
+      - POSTGRES_PASSWORD=gigstr
+    ports:
+      - 5432:5432
+
+  react1:
+    image: khaashifriaz/react1:v1
+    container_name: react1
+    ports:
+      - 5001:3000
+
+  api1:
+    image: khaashifriaz/api1:v1
+    container_name: api1
+    ports:
+      - 3001:3000
+
+  react3:
+    image: khaashifriaz/react3:v1
+    container_name: react3
+    ports:
+      - 5003:3000
+
+  api3:
+    image: khaashifriaz/api3:v1
+    container_name: api3
+    ports:
+      - 3003:3000
+
+
+
+
+  
+
+
+
