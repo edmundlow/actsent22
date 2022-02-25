@@ -15,12 +15,12 @@ jobs:
 
     - name: Login to DockerHub
       run: echo ${{ secrets.DOCKER_PASS }} | docker login -u ${{ secrets.DOCKER_USER }} --password-stdin
-      working-dir: front-end
+      working-directory: front-end
 
     - name: Build the Docker image
       run: docker build -t khaashifriaz/gigstr:react2 .
-      working-dir: front-end
+      working-directory: front-end
 
     - name: Push the docker image
       run: docker push khaashifriaz/gigstr:react2
-      working-dir: front-end
+      working-directory: front-end
