@@ -74,6 +74,7 @@ app.get('/events', async (req,res) => {
   res.send(events)
 })
 
+// What do we need this for?
 app.put('/event', (req,res) => {
   
 })
