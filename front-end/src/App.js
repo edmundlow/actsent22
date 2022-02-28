@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import ListOfVenues from'./components/listofvenues/ListOfVenues'
 import SingleVenuePage from './pages/SingleVenuePage';
+import EventsPage from './pages/EventsPage';
 
 import { useEffect, useState} from 'react'
 import {
@@ -29,6 +30,9 @@ const Routes = () => (
     <Route exact path={`/venues/:id`}>
     <SingleVenuePage />
     </Route>
+    <Route exact path={`/events`}>
+    <EventsPage />
+    </Route>
     <Route path="/">
       <h1>Home</h1>
     </Route>
@@ -44,9 +48,10 @@ const NavBar = () => {
     <>
       <label>{pathname}</label>
       <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/venues">View Venue</NavLink>
-        <NavLink to="/mybooking">Booking</NavLink>
+        <NavLink to="/"> Home </NavLink>
+        <NavLink to="/venues"> View Venue </NavLink>
+        <NavLink to="/events"> View Events </NavLink>
+        <NavLink to="/mybooking"> Booking </NavLink>
       </nav>
     </>
   );
