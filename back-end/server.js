@@ -69,7 +69,7 @@ app.get('/venue', (req, res) => {
 //                description: newBookingRequest.description
 
 app.post('/create_event', (req, res) => {
-  const venue_id = req.body.venue_id
+  const venue_id = req.body.id
   const event_name = req.body.eventName
   const event_description = req.body.eventDescription
   const event_image = req.body.eventImage

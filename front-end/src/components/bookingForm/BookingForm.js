@@ -19,7 +19,7 @@ const BookingForm = (props) =>{
     const [date, setDate] = useState('')
     const [artistEmail, setArtistEmail] = useState('')
     const [genre, setGenre] = useState('')
-    const [status, setStatus] = useState('')
+    const [status, setStatus] = useState('pending')
     const [id, setId]=useState(props.id)
     const [eventImage, setEventImage] = useState('')
 
@@ -73,7 +73,7 @@ const BookingForm = (props) =>{
            <div>
                <label>Event Description</label>
                <input type='text' placeholder="great"
-               value={eventDescription} onChange={(e)=> {setEventDescription('greatt')}}/>
+               value={eventDescription} onChange={(e)=> {setEventDescription(e.target.value)}}/>
            </div>
 
            <div>
