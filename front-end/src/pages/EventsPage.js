@@ -3,11 +3,11 @@ import { useEffect, useState} from 'react'
 const event_id = 1
 
 async function fetchEvents(event_id){
-    const res = await fetch('http://localhost:3000/events')
+    const res = await fetch('http://localhost:3002/events')
     //const res = await fetch(process.env.ACTCITING-REACT-URI + '/')
     const data = await res.json()
     // data.filter(events => events.artistEmail === artistEmail)
-
+    console.log("data", data)
     const event = data.find(events => events.event_id === event_id )    
     
     console.log(event)
@@ -19,7 +19,7 @@ async function fetchEvents(event_id){
 
     const [event, setEvent] = useState({})
     useEffect(() => {
-        fetchEvents().then(setEvent)
+        fetchEvents(1).then(setEvent)
     }, []
     
     )

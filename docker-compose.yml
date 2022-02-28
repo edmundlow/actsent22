@@ -12,6 +12,8 @@ services:
   api2:
     build: ./back-end
     container_name: "back-end"
+    environment:
+      - DB_HOSTNAME=gigstr-db-container
     ports:
       - 3002:3000
    
@@ -20,7 +22,7 @@ services:
     image: khaashifriaz/gigstr:gigtag
     container_name: gigstr-db-container
     environment:
-      - POSTGRES_PASSWORD=gigstr
+      - POSTGRES_PASSWORD=gigstr 
     ports:
       - 5432:5432
 
