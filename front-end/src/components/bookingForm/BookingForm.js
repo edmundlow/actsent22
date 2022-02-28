@@ -73,13 +73,22 @@ const BookingForm = (props) =>{
            <div>
                <label>Event Description</label>
                <input type='text' placeholder="great"
-               value={eventDescription} onChange={(e)=> {setEventDescription(e.target.value)}}/>
+               value={eventDescription} onChange={(e)=> {setEventDescription(e.target.value)}} size='10'
+               />
            </div>
 
            <div>
-               <label>Genre</label>
-               <input type='text' placeholder="rock"
-               value={genre} onChange={(e)=> {setGenre(e.target.value)}}/>
+               <label for='genre'>Genre</label>
+               <select
+               id = 'genre' value={genre} onChange={(e)=> {setGenre(e.target.value)}}>
+               <option value="">--Please select a genre--</option>
+                <option value="hiphop">Hip Hop</option>
+                <option value="rock">Rock</option>
+                <option value="pop">Pop</option>
+                <option value="edm">EDM</option>
+                <option value="country">Country</option>
+                <option value="other">Other</option>
+               </select>
            </div>
 
            <div>
