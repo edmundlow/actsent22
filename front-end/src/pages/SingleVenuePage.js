@@ -42,19 +42,52 @@ const SingleVenuePage = () =>{
         setShowBookingForm(!showBookingForm)
     }
 
+    //const venue_id = req.body.id
+    //const venue_name = req.body.location
+    //const date = req.body.date
+    //const event_name = req.body.name
+    //const event_description= req.body.description
+    //const event_image = req.body.image
+    //const artist_name = req.body.artist_name
+    //const artist_email=req.body.artist_email
+    //const genre=req.body.genre
+    //const status=req.body.status
+
+    async function sendBookingRequest (newBookingRequest) {
+        const response = await fetch('http://localhost:3000/create_event', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json'
+          },
+      
+          body: JSON.stringify(newBookingRequest)
+        })
+        const data = response.text()
+        console.log(data)
+    }
+      
     const submitRequest = (newBookingRequest) =>{
 
         console.log(newBookingRequest)
-        
-        setBookingRequest([...bookingRequest, 
+        console.log(parseInt(id))
+        console.log(id)
+
+        sendBookingRequest(newBookingRequest)
+    
+        setBookingRequest( 
             {
-                venueId: parseInt(id),
+                venue_id: parseInt(id),
                 artistName: newBookingRequest.artistName,
+                artistEmail: newBookingRequest.artistEmail,
                 date: newBookingRequest.date,
-                capacity: newBookingRequest.capacity
+                eventName: newBookingRequest.eventName,
+                eventImage: newBookingRequest.eventImage,
+                genre: newBookingRequest.genre,
+                status: newBookingRequest.status,
+                eventDescription: newBookingRequest.eventDescription
             }
-        ])
-       
+        )
+        
         setShowBookingForm(!showBookingForm)
     }
 
@@ -70,7 +103,7 @@ const SingleVenuePage = () =>{
 
                     <BookBtn onClick={toggleBookingForm} text={showBookingForm ? "Cancel Request" : "Submit a Booking Request"}/>
 
-                    {showBookingForm && <BookingForm onBook={submitRequest}/>}
+                    {showBookingForm && <BookingForm onBook={submitRequest} id={id} />}
                     
 
                 </>

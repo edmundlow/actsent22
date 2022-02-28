@@ -18,6 +18,7 @@ const db = postgres({
 // })
 
 app.use(cors())
+app.use(express.json())
 app.get('/venue', (req, res) => {
   res.json([
     {
@@ -56,20 +57,32 @@ app.get('/venue', (req, res) => {
 })
 
 
+//venue_id: parseInt(id),
+//                artistName: newBookingRequest.artistName,
+//                artistEmail: newBookingRequest.artistEmail,
+//                date: newBookingRequest.date,
+//                capacity: newBookingRequest.capacity,
+//                eventName: newBookingRequest.eventName,
+//                eventImage: newBookingRequest.eventImage,
+//                genre: newBookingRequest.genre,
+//                status: newBookingRequest.status,
+//                description: newBookingRequest.description
+
 app.post('/create_event', (req, res) => {
-  const venue_id = req.body.id
-  const venue_name = req.body.location
-  const date = req.body.date
-  const event_name = req.body.name
-  const event_description= req.body.description
-  const event_image = req.body.image
-  const artist_name = req.body.artist_name
-  const artist_email=req.body.artist_email
+  const venue_id = req.body.venue_id
+  const event_name = req.body.eventName
+  const event_description = req.body.eventDescription
+  const event_image = req.body.eventImage
+  const artist_name = req.body.artistName
+  const artist_email = req.body.artistEmail
   const genre=req.body.genre
   const status=req.body.status
+  const date= req.body.date
+  console.log("body:", req.body)
+  console.log("atts:", [venue_id, date, event_name, event_description, event_image, artist_name, artist_email, genre, status])
   db.query(
-    'INSERT INTO events(venue_id, venue, date, event_name,  event_description, event_image,artist_name,artist_email,genre,status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8 ,$9) RETURNING event_id;',
-    [venue_id, venue_name, date, event_name, event_description, event_description, event_image, artist_name, artist_email, genre, status])
+    'INSERT INTO event(venue_id, date, event_name, event_description, event_image, artist_name, artist_email, genre, status) VALUES ($1, $2, $3, $4, $5, $6, $7, $8 ,$9) RETURNING event_id;',
+    [venue_id, date, event_name, event_description, event_image, artist_name, artist_email, genre, status])
     .then(res.status(200).send('Event creation successful'))
 })
 
