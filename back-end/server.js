@@ -3,7 +3,6 @@ const cors = require('cors')
 const postgres = require('pg-promise')()
 const app = express()
 
-// To-Do: find out DB name
 const db = postgres({
  host: process.env.DB_HOSTNAME || '127.0.0.1',
  database: 'gigstr',
@@ -56,18 +55,7 @@ app.get('/venue', (req, res) => {
   ])
 })
 
-
-//venue_id: parseInt(id),
-//                artistName: newBookingRequest.artistName,
-//                artistEmail: newBookingRequest.artistEmail,
-//                date: newBookingRequest.date,
-//                capacity: newBookingRequest.capacity,
-//                eventName: newBookingRequest.eventName,
-//                eventImage: newBookingRequest.eventImage,
-//                genre: newBookingRequest.genre,
-//                status: newBookingRequest.status,
-//                description: newBookingRequest.description
-
+//Insert event data into db
 app.post('/create_event', (req, res) => {
   const venue_id = req.body.id
   const event_name = req.body.eventName
@@ -86,16 +74,18 @@ app.post('/create_event', (req, res) => {
     .then(res.status(200).send('Event creation successful'))
 })
 
+// get all events
 app.get('/events', async (req,res) => {
   const events = await db.query('SELECT * FROM event ;')
   res.send(events)
 })
 
-// What do we need this for?
-app.put('/event', (req,res) => {
+// // What do we need this for?
+// app.put('/event', (req,res) => {
   
-})
+// })
 
+//update status of existing event in event table
 app.put('/event/status', (req,res) => {
   const new_status = req.body.status
   const event_id = req.body.id

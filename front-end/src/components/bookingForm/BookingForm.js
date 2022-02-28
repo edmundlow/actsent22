@@ -66,7 +66,7 @@ const BookingForm = (props) =>{
 
            <div>
                <label>Date</label>
-               <input type='text' placeholder="27 January 1756" 
+               <input type='date'
                value={date} onChange={(e)=> {setDate(e.target.value)}}/>
            </div>
            
