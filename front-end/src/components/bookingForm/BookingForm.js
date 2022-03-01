@@ -79,9 +79,8 @@ const BookingForm = (props) =>{
 
            <div>
                <label for='genre'>Genre</label>
-               <select
-               id = 'genre' value={genre} onChange={(e)=> {setGenre(e.target.value)}}>
-               <option value="">--Please select a genre--</option>
+               <select id = 'genre' value={genre} onChange={(e)=> {setGenre(e.target.value)}}>
+                <option value="">--Please select a genre--</option>
                 <option value="hiphop">Hip Hop</option>
                 <option value="rock">Rock</option>
                 <option value="pop">Pop</option>

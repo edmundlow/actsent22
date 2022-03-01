@@ -12,20 +12,21 @@ async function fetchEvents(event_id){
     
     console.log(event)
     return event
-  }
+}
 
 
-  const  EventsPage = (props) =>{
+const  EventsPage = (props) =>{
 
     const [event, setEvent] = useState({})
+
     useEffect(() => {
         fetchEvents(1).then(setEvent)
-    }, []
-    
-    )
+    }, [])
+
+
     return (
         <>
-        <p>{event.event_name}</p>
+            <p>{event.event_name}</p>
         </>
     )
 }

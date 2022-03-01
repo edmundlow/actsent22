@@ -7,7 +7,7 @@ import BookingForm from '../components/bookingForm/BookingForm'
 
 async function fetchVenue(id){
     console.log("welcome to venue")
-    const res = await fetch('http://localhost:3002/venue')
+    const res = await fetch('http://localhost:3003/venue_info')
     const data = await res.json()
 
     // WE ONLY RETURN THE VENUE WHOSE ID MATCHES id
@@ -62,6 +62,7 @@ const SingleVenuePage = () =>{
       
           body: JSON.stringify(newBookingRequest)
         })
+
         const data = response.text()
         console.log(data)
     }
@@ -101,13 +102,15 @@ const SingleVenuePage = () =>{
                     <h4> {venueState.location}</h4>
                     <h4> {venueState.description} </h4>
 
-                    <BookBtn onClick={toggleBookingForm} text={showBookingForm ? "Cancel Request" : "Submit a Booking Request"}/>
+                    <BookBtn onClick= {toggleBookingForm} text= {showBookingForm ? "Cancel Request" : "Submit a Booking Request"}/>
 
-                    {showBookingForm && <BookingForm onBook={submitRequest} id={id} />}
+                    {showBookingForm && <BookingForm onBook= {submitRequest} id= {id} />}
                     
 
                 </>
             }
-        </> )}
+        </> 
+    )
+}
 
 export default SingleVenuePage

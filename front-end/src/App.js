@@ -24,15 +24,19 @@ const Routes = () => (
     <Route path="/mybooking">
       <h1>Booking</h1>
     </Route>
+
     <Route exact path= '/venues'>
-    <ListOfVenues />
+      <ListOfVenues />
     </Route>
+
     <Route exact path={`/venues/:id`}>
-    <SingleVenuePage />
+      <SingleVenuePage />
     </Route>
+
     <Route exact path={`/events`}>
-    <EventsPage />
+      <EventsPage />
     </Route>
+
     <Route path="/">
       <h1>Home</h1>
     </Route>
@@ -88,15 +92,17 @@ function App()  {
 
   return (
     <>
-    <BrowserRouter>
-      <NavBar />
-      <Routes />
-    </BrowserRouter><div>
-        <RequestButton onClick={onClick}>  </RequestButton>
-        <p>{message} </p>
+      <BrowserRouter>
+        <NavBar />
+        <Routes />
+      </BrowserRouter>
+
+      <div>
+        <RequestButton onClick={onClick}/>
+        <p> {message} </p>
       </div>
-      </>
-      )
+    </>
+  )
   
 }
 
