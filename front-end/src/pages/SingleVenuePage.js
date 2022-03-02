@@ -11,7 +11,8 @@ async function fetchVenue(id){
     const data = await res.json()
 
     // WE ONLY RETURN THE VENUE WHOSE ID MATCHES id
-    return data.find(venue => venue.id === id)
+    console.log(data.find(venue => venue.venue_id === id))
+    return data.find(venue => venue.venue_id === id)
   }
 
 
@@ -28,9 +29,11 @@ const SingleVenuePage = () =>{
         }
     )
 
-    const [venueState, setVenueState] = useState(undefined)
+    const [venueState, setVenueState] = useState('abc')
 
     const { id } = useParams()
+    
+    console.log(id)
 
     useEffect(() => {
         // WE HAVE TO parseInt THE ID TO CONVERT IT TO AN INT
@@ -97,10 +100,10 @@ const SingleVenuePage = () =>{
             {
                 venueState === undefined ? <p> please wait ..</p> : 
                 <>
-                    <img src={venueState.image} alt={""}/>
-                    <h2> {venueState.name} </h2>
-                    <h4> {venueState.location}</h4>
-                    <h4> {venueState.description} </h4>
+                    <img src={venueState.venue_image} alt={""}/>
+                    <h2> {venueState.venue_name} </h2>
+                    <h4> {venueState.venue_geolocation}</h4>
+                    <h4> {venueState.venue_description} </h4>
 
                     <BookBtn onClick= {toggleBookingForm} text= {showBookingForm ? "Cancel Request" : "Submit a Booking Request"}/>
 
