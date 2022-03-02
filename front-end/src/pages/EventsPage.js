@@ -33,29 +33,27 @@ const SearchEventsForm = (props) =>{
         
        // const event = fetchEvents(eventId, artistEmail).then(setEvent)
         console.log(event)
-        
-        // return <EventsPage event={event}/>
 
         setSubmitBtnState(!submitBtnState)
     
     }
 
     return (
-        <>
+            <>
 
-            <form onSubmit={onSubmit}>
+                <form onSubmit={onSubmit}>
 
-                <div>
-                    <label>Enter your event id </label>
-                    <input type='number' placeholder="1" 
-                    value={eventId} onChange={(e)=> {setEventId(e.target.value)}}/>
+                    <div>
+                        <label>Enter your event id </label>
+                        <input type='number' placeholder="1" 
+                        value={eventId} onChange={(e)=> {setEventId(e.target.value)}}/>
 
-                </div>
+                    </div>
 
-                <div>
-                    <label>Enter your email </label>
-                    <input type='text' placeholder="1" 
-                    value={artistEmail} onChange={(e)=> {setArtistEmail(e.target.value)}}/>
+                    <div>
+                        <label>Enter your email </label>
+                        <input type='text' placeholder="1" 
+                        value={artistEmail} onChange={(e)=> {setArtistEmail(e.target.value)}}/>
                 
                 </div>
 
