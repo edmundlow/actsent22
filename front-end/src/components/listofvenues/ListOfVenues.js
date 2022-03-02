@@ -1,5 +1,6 @@
 import VenueListItem from '../venuelistitem/VenueListItem'
 import { useEffect, useState} from 'react'
+import { useParams} from "react-router-dom"
 
 
 async function fetchVenues(){
@@ -15,14 +16,24 @@ const  ListOfVenues = (props) =>{
 
     const [listState, setListState] = useState([])
 
+    const { location } = useParams()
+
     useEffect(() => {
         fetchVenues().then(setListState)
     }, [])
 
+    let filtered_venues = listState
+
+    if (location) {
+        filtered_venues = listState.filter(venue => {
+            return venue.venue_geolocation.includes(location)
+        })
+    }
+
     return (
         <>
             {
-                listState.map(venue => {
+                filtered_venues.map(venue => {
                     return <VenueListItem key= {venue.venue_id} id= {venue.venue_id} name= {venue.venue_name} 
                             location= {venue.venue_geolocation} description= {venue.venue_description} image= {venue.venue_image}/>
                 })
