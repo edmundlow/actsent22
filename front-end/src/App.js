@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import ListOfVenues from'./components/listofvenues/ListOfVenues'
 import SingleVenuePage from './pages/SingleVenuePage';
 import EventsPage from './pages/EventsPage';
+import SearchEventsForm from './pages/EventsPage';
 
 import { useEffect, useState} from 'react'
 import {
@@ -34,7 +35,7 @@ const Routes = () => (
     </Route>
 
     <Route exact path={`/events`}>
-      <EventsPage />
+      <SearchEventsForm />
     </Route>
 
     <Route path="/">
