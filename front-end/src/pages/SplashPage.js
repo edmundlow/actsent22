@@ -11,7 +11,7 @@ const SplashPage= () => {
     }
 
     const onFilter = (location) => {
-        history.push(`/venues/${location}`)
+        history.push(`/venues/location${location}`)
     }
 
     return(

@@ -26,7 +26,7 @@ const  ListOfVenues = (props) =>{
 
     if (location) {
         filtered_venues = listState.filter(venue => {
-            return venue.venue_geolocation.includes(location)
+            return venue.venue_address.includes(location)
         })
     }
 

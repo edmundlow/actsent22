@@ -1,15 +1,14 @@
 import {useState} from 'react'
-import { prependOnceListener } from '../../../../back-end/server'
-
 const FilterForm = (props) => {
     const [date, setDate] = useState()
-    const [location, setLocation] = useState()
+    const [location, setLocation] = useState('')
     const [capacity, setCapacity] = useState()
 
     const onSubmit = (e) => {
         e.preventDefault()
 
-        props.onBook(location)
+
+        props.onFilter(location)
     }
 
     return(
@@ -23,7 +22,8 @@ const FilterForm = (props) => {
             
             <div>
                 <label>Location</label>
-                <input type={'text'} value={location} placeholder="London"></input>
+                <input type={'text'} value={location} placeholder="London"
+                onChange={(e)=>{setLocation(e.target.value)}}></input>
             </div>
 
             <div>
