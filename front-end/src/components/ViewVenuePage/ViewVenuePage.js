@@ -2,23 +2,18 @@ import React from 'react';
 
 import { useHistory} from "react-router-dom";
 
-
-
 const ViewVenuePage = (props) =>{
-        const history = useHistory();
-        return (
+  const history = useHistory();
 
-          <button onClick={() => history.push(`/SingleVenuePage/${props.id}`)}>
+  return (
 
-            Click me
+    <button onClick={() => history.push(`/SingleVenuePage/${props.id}`)}>
 
-          </button>
+      Click me
 
-        )
+    </button>
 
-   
-
-    // return <button onClick={()=> history.push(`../pages/SingleVenuePage`)}/>
+  )
 
 }
 

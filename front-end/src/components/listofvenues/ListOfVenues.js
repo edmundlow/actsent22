@@ -1,33 +1,43 @@
 import VenueListItem from '../venuelistitem/VenueListItem'
 import { useEffect, useState} from 'react'
+import { useParams} from "react-router-dom"
 
 
 async function fetchVenues(){
    
-    const res = await fetch('http://localhost:3000/venue')
+    const res = await fetch('http://localhost:3003/venue_info')
     //const res = await fetch(process.env.ACTCITING-REACT-URI + '/')
     const data = await res.json()
     console.log(data)
     return data
-  }
+}
 
 const  ListOfVenues = (props) =>{
 
     const [listState, setListState] = useState([])
+
+    const { location } = useParams()
+
     useEffect(() => {
         fetchVenues().then(setListState)
-    }, []
-    
-    )
-    // hello 
-    // when database made => change key={venueID} in line 27
+    }, [])
+
+    let filtered_venues = listState
+
+    if (location) {
+        filtered_venues = listState.filter(venue => {
+            return venue.venue_address.includes(location)
+        })
+    }
+
     return (
         <>
-        {
-            listState.map(venue => {
-                return <VenueListItem key={venue.id} id = {venue.id} name={venue.name} location={venue.location} description={venue.description} image={venue.image}/>
-            })
-        }
+            {
+                filtered_venues.map(venue => {
+                    return <VenueListItem key= {venue.venue_id} id= {venue.venue_id} name= {venue.venue_name} 
+                            location= {venue.venue_geolocation} description= {venue.venue_description} image= {venue.venue_image}/>
+                })
+            }
         </>
     )
 }

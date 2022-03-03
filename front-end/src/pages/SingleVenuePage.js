@@ -11,7 +11,8 @@ async function fetchVenue(id){
     const data = await res.json()
 
     // WE ONLY RETURN THE VENUE WHOSE ID MATCHES id
-    return data.find(venue => venue.id === id)
+    console.log(data.find(venue => venue.venue_id === id))
+    return data.find(venue => venue.venue_id === id)
   }
 
 
@@ -28,9 +29,11 @@ const SingleVenuePage = () =>{
         }
     )
 
-    const [venueState, setVenueState] = useState(undefined)
+    const [venueState, setVenueState] = useState('abc')
 
     const { id } = useParams()
+    
+    console.log(id)
 
     useEffect(() => {
         // WE HAVE TO parseInt THE ID TO CONVERT IT TO AN INT
@@ -54,7 +57,7 @@ const SingleVenuePage = () =>{
     //const status=req.body.status
 
     async function sendBookingRequest (newBookingRequest) {
-        const response = await fetch('http://localhost:3000/create_event', {
+        const response = await fetch('http://localhost:3002/create_event', {
           method: 'POST',
           headers: {
             'content-type': 'application/json'
@@ -62,6 +65,7 @@ const SingleVenuePage = () =>{
       
           body: JSON.stringify(newBookingRequest)
         })
+
         const data = response.text()
         console.log(data)
     }
@@ -96,18 +100,20 @@ const SingleVenuePage = () =>{
             {
                 venueState === undefined ? <p> please wait ..</p> : 
                 <>
-                    <img src={venueState.image} alt={""}/>
-                    <h2> {venueState.name} </h2>
-                    <h4> {venueState.location}</h4>
-                    <h4> {venueState.description} </h4>
+                    <img src={venueState.venue_image} alt={""}/>
+                    <h2> {venueState.venue_name} </h2>
+                    <h4> {venueState.venue_geolocation}</h4>
+                    <h4> {venueState.venue_description} </h4>
 
-                    <BookBtn onClick={toggleBookingForm} text={showBookingForm ? "Cancel Request" : "Submit a Booking Request"}/>
+                    <BookBtn onClick= {toggleBookingForm} text= {showBookingForm ? "Cancel Request" : "Submit a Booking Request"}/>
 
-                    {showBookingForm && <BookingForm onBook={submitRequest} id={id} />}
+                    {showBookingForm && <BookingForm onBook= {submitRequest} id= {id} />}
                     
 
                 </>
             }
-        </> )}
+        </> 
+    )
+}
 
 export default SingleVenuePage
