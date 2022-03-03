@@ -90,7 +90,8 @@ app.get('/events', async (req,res) => {
 app.put('/event/status', (req,res) => {
   const new_status = req.body.status
   const event_id = req.body.event_id
-  db.query(`UPDATE event SET status = ${new_status} WHERE event_id = ${event_id} `)
+  console.log("status", new_status);
+  db.query(`UPDATE event SET status = '${new_status}' WHERE event_id = ${event_id}; `)
   .then(res.status(200).send('Status updated successfully'))
 })
 
