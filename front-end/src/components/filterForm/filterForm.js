@@ -11,6 +11,9 @@ const FilterForm = (props) => {
         props.onFilter(location)
     }
 
+
+
+
     return(
 
         <form onSubmit={onSubmit}>
@@ -21,9 +24,13 @@ const FilterForm = (props) => {
             </div>
             
             <div>
-                <label>Location</label>
-                <input type={'text'} value={location} placeholder="London"
-                onChange={(e)=>{setLocation(e.target.value)}}></input>
+                <label for='location'>location</label>
+                <select id = 'location' value={location} onChange={(e)=>{setLocation(e.target.value)}}>
+                <option value="">--Please select a location--</option>
+                <option value="London">London</option>
+                <option value="Manchester">Manchester</option>
+                <option value="Birmingham">Birmingham</option>
+                </select>
             </div>
 
             <div>
