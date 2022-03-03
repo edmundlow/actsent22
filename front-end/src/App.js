@@ -28,7 +28,7 @@ const Routes = () => (
       <ListOfVenues />
     </Route>
 
-    <Route exact path={`/venues/id:id`}>
+    <Route exact path={`/venues/:id`}>
       <SingleVenuePage />
     </Route>
 
