@@ -8,7 +8,7 @@ async function fetchEvents(artist_email){
     //const res = await fetch(process.env.ACTCITING-REACT-URI + '/')
     const data = await res.json()
 
-    // console.log("data", data)
+    console.log("data", data)
     //const event = data.find(events => events.event_id === event_id)// && events.artist_email === artist_email)    
     return data.filter(events =>  events.artist_email === artist_email)
 }
@@ -17,7 +17,7 @@ const SearchEventsForm = (props) =>{
     const [submitBtnState, setSubmitBtnState] = useState(true)
     // const [eventId, setEventId] = useState(0)
     const [artistEmail, setArtistEmail] = useState('')
-    const [event, setEvent] = useState(undefined)
+    const [event, setEvent] = useState([])
     
 
     useEffect(() => {
@@ -62,21 +62,14 @@ const SearchEventsForm = (props) =>{
 
 
 const  EventsView = (props) =>{
-
-    // const [event, setEvent] = useState()
-
-    // useEffect(() => {
-    //     fetchEvents(props.event.artistEmail).then(setEvent)
-    // }, [])
-    // console.log("props.event = ", props.event, props.event===undefined)
-    // console.log("props = ", props)
+    console.log("event array length", props.event.length)
+    console.log(props.event.length === 0)
     return (
         <>
         
-            {
-                props.event === undefined ? <p> No events to show </p> : 
-                // <SingleEventItem event={props.event} />
-                props.event.map(events => {
+            {   
+            
+                props.event.length === 0 ? <p> No events to show </p> : props.event.map(events => {
                     return <SingleEventItem event={events} />
                 })
             

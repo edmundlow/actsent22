@@ -22,9 +22,6 @@ import {
 const Routes = () => (
 
   <Switch>
-    <Route path="/mybooking">
-      <h1>Booking</h1>
-    </Route>
 
     <Route exact path= '/venues'>
       <ListOfVenues />
@@ -56,7 +53,6 @@ const NavBar = () => {
         <NavLink to="/"> Home </NavLink>
         <NavLink to="/venues"> View Venue </NavLink>
         <NavLink to="/events"> View Events </NavLink>
-        <NavLink to="/mybooking"> Booking </NavLink>
       </nav>
     </>
   );
