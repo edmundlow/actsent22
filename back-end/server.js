@@ -5,16 +5,11 @@ const app = express()
 
 const db = postgres({
  host: process.env.DB_HOSTNAME || '127.0.0.1',
- database: 'gigstr',
- user: 'gigstr',
+ database: process.env.DB_NAME || 'gigstr',
+ user: process.env.DB_USER || 'gigstr',
  password: process.env.DB_PASSWORD || 'gigstr',
 })
 
-// app.use(cors())
-// app.get('/', async (req, res) => {
-//  const venue = await db.query('SELECT venue_name FROM venue ;')
-//  res.send(venue)
-// })
 
 app.use(cors())
 app.use(express.json())
