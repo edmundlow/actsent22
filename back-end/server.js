@@ -76,7 +76,7 @@ app.post('/create_event', (req, res) => {
 
 // get all events
 app.get('/events', async (req,res) => {
-  const events = await db.query('SELECT a.venue_id, date, event_name, event_description, event_image, artist_name, artist_email, genre, status, venue_name, venue_geolocation, venue_address FROM event a left join listed_venues b on a.venue_id = b.venue_id;')
+  const events = await db.query('SELECT a.venue_id, event_id, date, event_name, event_description, event_image, artist_name, artist_email, genre, status, venue_name, venue_geolocation, venue_address FROM event a left join listed_venues b on a.venue_id = b.venue_id;')
 
   res.send(events)
 })
@@ -89,8 +89,9 @@ app.get('/events', async (req,res) => {
 //update status of existing event in event table
 app.put('/event/status', (req,res) => {
   const new_status = req.body.status
-  const event_id = req.body.id
-  db.query(`UPDATE event SET status = ${new_status} WHERE id = ${event_id} `)
+  const event_id = req.body.event_id
+  console.log("status", new_status);
+  db.query(`UPDATE event SET status = '${new_status}' WHERE event_id = ${event_id}; `)
   .then(res.status(200).send('Status updated successfully'))
 })
 

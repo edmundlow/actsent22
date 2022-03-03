@@ -6,6 +6,7 @@ import ListOfVenues from'./components/listofvenues/ListOfVenues'
 import SingleVenuePage from './pages/SingleVenuePage';
 import EventsPage from './pages/EventsPage';
 import SearchEventsForm from './pages/EventsPage';
+import SplashPage from './pages/SplashPage';
 
 import { useEffect, useState} from 'react'
 import {
@@ -27,8 +28,12 @@ const Routes = () => (
       <ListOfVenues />
     </Route>
 
-    <Route exact path={`/venues/:id`}>
+    <Route exact path={`/venues/id:id`}>
       <SingleVenuePage />
+    </Route>
+
+    <Route exact path={`/venues/location:location`}>
+      <ListOfVenues />
     </Route>
 
     <Route exact path={`/events`}>
@@ -36,26 +41,42 @@ const Routes = () => (
     </Route>
 
     <Route path="/">
-      <h1>Home</h1>
+      <SplashPage />
     </Route>
   </Switch>
 
 );
+
+
 
 const NavBar = () => {
   // For illustration
   const { pathname } = useLocation();
 
   return (
+    // <label>{pathname}</label>
     <>
-      <label>{pathname}</label>
-      <nav>
-        <NavLink to="/"> Home </NavLink>
-        <NavLink to="/venues"> View Venue </NavLink>
-        <NavLink to="/events"> View Events </NavLink>
+      <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/"><b> ActSent </b>| Part of GigStr</a>
+          <NavLink class="navbar-brand" to="/venues"> Venues </NavLink>
+          <NavLink class="navbar-brand" to="/events"> Events </NavLink>
+        </div>
       </nav>
     </>
   );
+
+  // return (
+  //   <>
+  //     <label>{pathname}</label>
+  //     <nav>
+  //       <NavLink to="/"> Home </NavLink>
+  //       <NavLink to="/venues"> View Venue </NavLink>
+  //       <NavLink to="/events"> View Events </NavLink>
+  //       <NavLink to="/mybooking"> Booking </NavLink>
+  //     </nav>
+  //   </>
+  // );
 };
 
 
@@ -70,34 +91,12 @@ const RequestButton = (props) => {
 
 function App()  {
 
-  const [message, setMessage] = useState("no message");
-
-  //useEffect(() => {onClick()}, []);
-
-
-  async function onClick(){
-    console.log("the button has been clicked woooo!")
-    // const res = await fetch('https://kdm665d8y1.execute-api.eu-west-2.amazonaws.com/production/')
-    const res = await fetch('http://localhost:3002/venue')
-    const data = await res.text()
-    console.log(data)
-    //setMessage(data);
-    //(data);
-   // return data
-   
-  }
-
   return (
     <>
       <BrowserRouter>
         <NavBar />
         <Routes />
       </BrowserRouter>
-
-      <div>
-        <RequestButton onClick={onClick}/>
-        <p> {message} </p>
-      </div>
     </>
   )
   
