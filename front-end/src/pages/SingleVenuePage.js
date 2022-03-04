@@ -7,7 +7,7 @@ import BookingForm from '../components/bookingForm/BookingForm'
 
 async function fetchVenue(id){
     console.log("welcome to venue")
-    const res = await fetch(process.env.ACTSENT_API+'/venue_info')
+    const res = await fetch(process.env.ACTCITING_API+'/venue_info')
     const data = await res.json()
 
     // WE ONLY RETURN THE VENUE WHOSE ID MATCHES id
