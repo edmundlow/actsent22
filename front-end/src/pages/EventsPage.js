@@ -5,7 +5,7 @@ import SingleEventItem from'../components/singleEventItem/SingleEventItem'
 
 async function fetchEvents(artist_email){
     
-    const res = await (await fetch(`${process.env.ACTSENT_API}/events`))
+    const res = await (await fetch(`https://venues.sotf2022-01.com/events`))
     //const res = await fetch(process.env.ACTCITING-REACT-URI + '/')
     const data = await res.json()
 
