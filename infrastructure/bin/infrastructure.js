@@ -20,7 +20,7 @@ new InfrastructureStack(app, 'Actsent', {
   dbSecret: "gigstrrdsclusterSecretD2C8F-28IADAGMhkzr",
   dbSecurityGroup: "sg-0554b02dc17ffb4ca",
   domainName: "sotf2022-01.com",
-  subDomain: 'actsent'
+  subDomain: 'events'
 
   /* Uncomment the next line if you know exactly what Account and Region you
    * want to deploy the stack to. */
