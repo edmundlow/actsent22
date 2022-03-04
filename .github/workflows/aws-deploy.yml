@@ -15,6 +15,7 @@ jobs:
     env:
       AWS_ACCOUNT: ${{ secrets.AWS_ACCOUNT }}
       AWS_REGION: eu-west-2
+      CI: false
     permissions:
       id-token: write
       contents: read
@@ -30,8 +31,7 @@ jobs:
       - name: Build Frontend
         working-directory: ./front-end
         run: npm run build
-        env:
-          CI: false
+
       
 
       - name: Install Lambda dependencies
