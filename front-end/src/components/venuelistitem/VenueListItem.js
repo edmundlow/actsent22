@@ -6,7 +6,7 @@ const VenueListItem = (props) =>{
     const history = useHistory()
 
     const singlevenue = () => {
-        history.push(`/venues/${props.id}`)
+        history.push(`/venues/location${props.locationCity}/${props.id}`)
     }
 
     return (

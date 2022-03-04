@@ -31,9 +31,9 @@ const SingleVenuePage = () =>{
 
     const [venueState, setVenueState] = useState('abc')
 
-    const { id } = useParams()
+    const {id, location} = useParams()
     
-    console.log(id)
+    console.log(id , location)
 
     useEffect(() => {
         // WE HAVE TO parseInt THE ID TO CONVERT IT TO AN INT

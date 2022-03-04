@@ -15,12 +15,12 @@ const SplashPage= () => {
     }
 
     return(
-        <div>
-        <h1>
+        <div className="jumbotron text-center">
+        <h1 className="display-4">
             Welcome to ActSent
         </h1>
-        <h2>Get started below</h2>
-        <button onClick={allvenues}>View all Venues</button>
+        <h2 className="lead">Get started below</h2>
+        <button className="btn btn-success" onClick={allvenues}>View all Venues</button>
 
         <FilterForm onFilter={onFilter}></FilterForm>
         </div>
